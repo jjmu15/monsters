@@ -1,5 +1,9 @@
 # Laravel Monsters
 
+Before simulating the world, please run `composer install` to set up required dependencies.
+
+Once installed, run the `php artisan monsters` command in your command line at the project root. You will then be prompted to enter the number of monsters. 
+
 You are given a map containing the names of cities in the non-existent
 world of X.  The map is in a file, with one city per line.  The city
 name is first, followed by 1-4 directions (north, south, east, or
