@@ -48,14 +48,10 @@
                 font-size: 84px;
             }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
+            .warning {
+              max-width: 550px;
+              width: 80%;
+              margin: 30px auto;
             }
 
             .m-b-md {
@@ -85,6 +81,13 @@
                 </div>
 
                 <img src="https://media.giphy.com/media/MSaHmebTs8LN6/giphy.gif" alt="Do the roar" />
+
+
+                <div class="warning">
+                  <p>
+                    Behind the scenes of this app is a dangerous world full of monsters and destruction. For those knowledgable and brave enough to enter the <code>'php artisan monsters'</code> command will begin your journey into the unknown.
+                  </p>
+                </div>
 
 
             </div>

@@ -11,7 +11,7 @@ class CityCollection
 
     public function addCity(City $city)
     {
-      Arr::add($this->cities, $city);
+      $this->cities[] = $city;
     }
 
     public function getCities()
@@ -26,15 +26,28 @@ class CityCollection
 
     public function getCity($name)
     {
-      $city = Arr::get($this->cities, $name);
-
-      if($city) : return $city;
+      foreach ($this->cities as $city) {
+        if($city->getName() === $city->getName()) {
+          return $city;
+        }
+      }
 
       return false;
     }
 
+    public function setCollection($collection)
+    {
+      $this->cities = $collection;
+    }
+
     public function destroyCity(City $city)
     {
-      Arr::forget($this->cities, $city);
+      foreach($this->cities as $key => $value) {
+        if($value->getName() === $city->getName()) {
+          unset($this->cities[$key]);
+        }
+      }
+
+      return $this->cities;
     }
 }

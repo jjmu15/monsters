@@ -38,6 +38,16 @@ class Monster
       $this->lifespan = $lifespan;
     }
 
+    public function getLifespan()
+    {
+      return $this->lifespan;
+    }
+
+    public function setCurrentCity($city)
+    {
+      $this->currentCity = $city;
+    }
+
     public function getCurrentCity()
     {
       return $this->currentCity;

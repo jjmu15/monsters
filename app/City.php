@@ -2,10 +2,12 @@
 
 namespace App;
 
+use Illuminate\Support\Arr;
+
 class City
 {
     protected $name,
-              $destroyed = false,
+              $destroyed,
               $neighbours = array();
 
     public function setName($name)
@@ -25,12 +27,17 @@ class City
 
     public function getRandomNeighbour()
     {
-
+      return Arr::random($this->neighbours, 1);
     }
 
     public function removeNeighbour($direction)
     {
       unset($this->neighbours[$direction]);
+    }
+
+    public function setDestroyed($destroyed)
+    {
+      $this->destroyed = $destroyed;
     }
 
     public function isDestroyed()
