@@ -12,7 +12,7 @@ class Monsters extends Command
      * @var string
      */
     protected $signature = 'monsters
-                            {count: The number of monsters in the world}';
+                            {count: The numb er of monsters in the world}';
 
     /**
      * The console command description.

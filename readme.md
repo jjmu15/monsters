@@ -1,71 +1,57 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Laravel Monsters
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+You are given a map containing the names of cities in the non-existent
+world of X.  The map is in a file, with one city per line.  The city
+name is first, followed by 1-4 directions (north, south, east, or
+west).  Each one represents a road to another city that lies in that
+direction.
 
-## About Laravel
+For example:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Foo north=Bar west=Baz south=Qu-ux
+Bar south=Foo west=Bee
+...
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The city and each of the pairs are separated by a single space, and
+the directions are separated from their respective cities with an
+equals (=) sign.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+In this world you are competing to be the evil overlord, so you create
+many monsters to go forth and cause trouble.  You should create N
+monsters, where N is specified as a commandline argument.
 
-## Learning Laravel
+These monsters start out at random places on the map, and wander
+around randomly, following links.  Each iteration, the monsters can
+travel in any of the directions leading out of a city.  In our example
+above, a monster that starts at Foo can go north to Bar, west to Baz,
+or south to Qu-ux.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+When two monsters end up in the same place, they fight, and in the
+process kill each other and destroy the city.  When a city is
+destroyed, it is removed from the map, and so are any roads that lead
+into or out of it.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost you and your team's skills by digging into our comprehensive video library.
+In our example above, if Bar were destroyed the map would now be
+something like:
 
-## Laravel Sponsors
+Foo west=Baz south=Qu-ux
+...
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Once a city is destroyed, monsters can no longer travel to or through
+it.  This may lead to monsters getting "trapped" -- that's ok, you
+don't care, because you're an evil overlord.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
+You should create a program that reads in the world map, creates N
+monsters, and unleashes them.  The program should run until all the
+monsters have been destroyed, or each monster has moved at least
+10,000 times.  When two monsters fight, print out a message like:
 
-## Contributing
+Bar has been destroyed by monster 10 and monster 34!
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+(If you want to give them names, you may, but it is not required.)
+Once the program has finished, it should print out whatever is left of
+the world in the same format as the input file.
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Feel free to make assumptions (for example, that the city names will
+never contain numeric characters), but please add comments or
+assertions describing the assumptions you are making.
