@@ -11,7 +11,7 @@ class MonsterCollection
 
     public function addMonster(Monster $monster)
     {
-      Arr::add($this->monsters, $monster);
+      $this->monsters[] = $monster;
     }
 
     public function getMonsters()

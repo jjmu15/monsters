@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
-use Faker\Factory as Faker;
 use App\Monster;
+use Faker\Generator as Faker;
 
 class MonsterSeeder extends Seeder
 {
@@ -14,11 +14,13 @@ class MonsterSeeder extends Seeder
      */
     public function run()
     {
-      $faker = Faker::create();
       $monster = new Monster();
-      $monster->id = $faker->unique()->randomDigit;
-      $monster->name = $faker->name;
+      $faker = new Faker();
+
+      $monster->id = now();
+      $momster->name = $faker->name;
       $monster->active = true;
+      $monster->lifespan = 10000;
 
       return $monster;
     }

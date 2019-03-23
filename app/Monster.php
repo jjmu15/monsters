@@ -5,8 +5,10 @@ namespace App;
 class Monster
 {
     protected $id,
+              $name,
               $currentCity,
-              $active = true;
+              $active,
+              $lifespan;
 
     /*
      * @param ID $id
@@ -21,6 +23,21 @@ class Monster
       return $this->id;
     }
 
+    public function setName($name)
+    {
+      return $this->name = $name;
+    }
+
+    public function getName()
+    {
+      return $this->name;
+    }
+
+    public function setLifespan($lifespan)
+    {
+      $this->lifespan = $lifespan;
+    }
+
     public function getCurrentCity()
     {
       return $this->currentCity;
@@ -31,11 +48,16 @@ class Monster
       return $this->active;
     }
 
+    public function setActive()
+    {
+      $this->active = true;
+    }
+
     public function setInactive()
     {
       $this->active = false;
     }
-    
+
 
 
 }
