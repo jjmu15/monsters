@@ -1,8 +1,11 @@
 # Laravel Monsters
 
-Before simulating the world, please run `composer install` to set up required dependencies.
+Before simulating the world, please run the following commands:
+1.  `composer install` to set up required dependencies.
+2.  `cp .env.example .env` to create a .env file to run the monsters world
+3.  `php artisan key:generate` to generate a key for the .env file
 
-Once installed, run the `php artisan monsters` command in your command line at the project root. You will then be prompted to enter the number of monsters. 
+Once installed, run the `php artisan monsters` command in your command line at the project root. You will then be prompted to enter the number of monsters.
 
 You are given a map containing the names of cities in the non-existent
 world of X.  The map is in a file, with one city per line.  The city
